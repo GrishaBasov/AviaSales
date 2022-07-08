@@ -1,0 +1,49 @@
+.button-cheap, .button-fast, .button-optimal {
+  box-sizing: border-box;
+  position: absolute;
+
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #4A4A4A;
+
+  background: #FFFFFF;
+  border: 1px solid #DFE5EC;
+}
+
+.button-cheap {
+  width: 168px;
+  height: 50px;
+  left: 355px;
+  top: 160px;
+  border-radius: 5px 0 0 5px;
+}
+
+.button-fast {
+  width: 168px;
+  height: 50px;
+  left: 522px;
+  top: 160px;
+}
+
+.button-optimal {
+  width: 168px;
+  height: 50px;
+  left: 689px;
+  top: 160px;
+  border-radius: 0 5px 5px 0;
+}
+
+//.button-cheap:hover, .button-fast:hover, .button-optimal:hover {
+//  color: #FFFFFF;
+//  background: #2196F3;
+//}
+
+.selected {
+  color: #FFFFFF;
+  background: #2196F3;
+}

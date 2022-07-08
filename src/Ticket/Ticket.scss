@@ -1,0 +1,102 @@
+.ticket-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 502px;
+  height: 184px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.header {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 462px;
+  height: 36px;
+}
+
+.price {
+  font-size: 24px;
+  line-height: 24px;
+  color: #2196F3;
+}
+
+.one-way {
+  position: absolute;
+  top: 76px;
+  display: flex;
+  justify-content: space-between;
+  width: 462px;
+  height: 39px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+}
+
+.another-way {
+  position: absolute;
+  top: 125px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 462px;
+  height: 39px;
+}
+
+.route {
+  width: 141px;
+  height: 18px;
+  font-size: 12px;
+  color: #A0B0B9;
+}
+
+.in-the-way {
+  width: 141px;
+  height: 18px;
+  font-size: 12px;
+  color: #A0B0B9;
+}
+
+.number-of-transfers {
+  width: 141px;
+  height: 18px;
+  font-size: 12px;
+  color: #A0B0B9;
+}
+
+.departure-time {
+  width: 141px;
+  height: 21px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #4A4A4A;
+}
+
+.time-in-the-sky {
+  width: 141px;
+  height: 21px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #4A4A4A;
+  text-transform: lowercase;
+}
+
+.cities-transfer {
+  width: 141px;
+  height: 21px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #4A4A4A;
+}
+
+
+

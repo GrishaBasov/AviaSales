@@ -1,1 +1,1 @@
-https://aviasales-kappa-two.vercel.app/
+https://aviasales-grishabasov.vercel.app/

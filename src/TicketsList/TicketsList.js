@@ -4,6 +4,7 @@ import classes from "./TicketsList.module.scss";
 import Ticket from "../Ticket";
 import { getSessionId, getTickets } from "../Services/Services";
 import Spinner from "../Spinner";
+import ErrorMessage from "../ErrorMessage";
 
 function TicketsList({ getSessionId, getTickets, state }) {
 	let id = 0;
@@ -272,6 +273,14 @@ function TicketsList({ getSessionId, getTickets, state }) {
 	};
 
 	const tickets = elements(state);
+
+	if(tickets.length === 0) {
+		return (
+			<div className={classes["ticket-list-with-error"]}>
+				<ErrorMessage/>
+			</div>
+		);
+	}
 
 	if (state.stop === false) {
 		return (

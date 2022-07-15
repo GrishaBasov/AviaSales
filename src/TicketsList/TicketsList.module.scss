@@ -10,4 +10,14 @@
   left : 355px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.ticket-list-with-error {
+  position: absolute;
+  width: 502px;
+  top: 220px;
+  left : 355px;
+  display: flex;
+  justify-content: center;
 }

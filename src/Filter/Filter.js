@@ -3,6 +3,8 @@ import classes from "./Filter.module.scss";
 import * as actions from "../actions";
 
 function Filter({ currentFilters, filterChange }) {
+
+
 	return (
 		<div className={classes["filter-wrapper"]}>
 			<header className={classes["filter-header"]}>количество пересадок</header>
@@ -63,6 +65,9 @@ function Filter({ currentFilters, filterChange }) {
 			</label>
 		</div>
 	);
+	
+
+
 }
 
 const mapStateProps = (state) => ({

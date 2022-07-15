@@ -274,7 +274,7 @@ function TicketsList({ getSessionId, getTickets, state }) {
 
 	const tickets = elements(state);
 
-	if(tickets.length === 0) {
+	if(tickets.length === 0 && state.tickets.length !== 0) {
 		return (
 			<div className={classes["ticket-list-with-error"]}>
 				<ErrorMessage/>

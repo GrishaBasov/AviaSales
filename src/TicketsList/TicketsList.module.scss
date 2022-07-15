@@ -1,0 +1,13 @@
+.ticket-list {
+  position: absolute;
+  top: 230px;
+  left : 355px;
+}
+
+.ticket-list-with-spinner {
+  position: absolute;
+  top: 220px;
+  left : 355px;
+  display: flex;
+  flex-direction: column;
+}

@@ -13,6 +13,8 @@
 
   background: #FFFFFF;
   border: 1px solid #DFE5EC;
+
+  cursor: pointer;
 }
 
 .button-cheap {
@@ -37,11 +39,6 @@
   top: 160px;
   border-radius: 0 5px 5px 0;
 }
-
-//.button-cheap:hover, .button-fast:hover, .button-optimal:hover {
-//  color: #FFFFFF;
-//  background: #2196F3;
-//}
 
 .selected {
   color: #FFFFFF;

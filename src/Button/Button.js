@@ -1,10 +1,27 @@
 import React from "react";
-import "./Button.scss";
+import { connect } from "react-redux";
+import classes from "./Button.module.scss";
+import { showNewFiveTickets } from "../actions";
 
-const Button = () => {
-  return (
-    <button className={"button-show-five-more"}>показать ещё 5 билетов!</button>
-  );
-};
+function Button({ showNewFiveTickets, state }) {
+	let className = classes["button-show-five-more"];
+	if (state.stop === false) {
+		className = classes["button-show-five-more-spinner"];
+	}
 
-export default Button;
+	return (
+		<button onClick={showNewFiveTickets} className={className}>
+      показать ещё 5 билетов!
+		</button>
+	);
+}
+
+const mapStateProps = (state) => ({
+	state,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	showNewFiveTickets: () => dispatch(showNewFiveTickets()),
+});
+
+export default connect(mapStateProps, mapDispatchToProps)(Button);

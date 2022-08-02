@@ -1,6 +1,3 @@
-import classes from "./Tabs/Tabs.module.scss";
-
-
 
 const reducer = (
 	state = {
@@ -11,42 +8,43 @@ const reducer = (
 		prevIndex: 0,
 		index: 5,
 		stop: false,
-		withoutTransfers: false,
 		tab: "cheap",
-		tabClassNames: [
-			`${classes["button-cheap"]} ${classes.selected}`,
-			classes["button-fast"],
-			classes["button-optimal"],
-		],
 	},
 	action
 ) => {
-	if (action.type === "filterChange") {
+	switch (action.type) {
+	case "filterChange":
 		if (action.e.target.id === "0" && state.filters[0] === false) {
-			state.filters = state.filters.map(() => true);
-			return {...state, ...state.filters};
+			let newArr = state.filters;
+			newArr = newArr.map(() => true);
+			return {...state, filters : newArr};
 		}
 		if (action.e.target.id === "0" && state.filters[0] === true) {
-			state.filters = state.filters.map(() => false);
+			let newArr = state.filters;
+			newArr = newArr.map(() => false);
+			return {...state, filters : newArr};
 		}
 		if (action.e.target.id !== "0") {
-			const newArr = [...state.filters];
+			let newArr = state.filters;
 			newArr[Number(action.e.target.id)] =
 				!newArr[Number(action.e.target.id)];
-			state.filters = newArr;
-			state.filters[0] =
-				state.filters[1] === true &&
-				state.filters[2] === true &&
-				state.filters[3] === true &&
-				state.filters[4] === true;
+
+			if (newArr[1] === true && newArr[2] === true && newArr[3] === true && newArr[4] === true) {
+				newArr[0] = true;
+			}
+			if (newArr[1] === false || newArr[2] === false || newArr[3] === false || newArr[4] === false) {
+				newArr[0] = false;
+			}
+
+			return {...state, filters : newArr};
 		}
-		return {...state, ...state.filters};
-	} else if (action.type === "getId") {
+		return {...state};
+	case "getId":
 		if (state.id === null) {
 			return {...state, id: action.id};
 		}
 		return {...state};
-	} else if (action.type === "getTickets") {
+	case "getTickets":
 		if (action.stop === true) {
 			return {
 				...state,
@@ -59,26 +57,19 @@ const reducer = (
 			tickets: [...state.tickets, ...action.tickets],
 			counter: state.counter + 1,
 		};
-	} else if (action.type === "showNewFiveTickets") {
+	case "showNewFiveTickets":
 		return {
 			...state,
 			prevIndex: state.prevIndex + 5,
 			index: state.index + 5,
 		};
-	} else if (action.type === "tabChange") {
-		const copyOfClassNames = [
-			classes["button-cheap"],
-			classes["button-fast"],
-			classes["button-optimal"],
-		];
-		copyOfClassNames[action.e.target.id] += ` ${classes.selected}`;
-
+	case "tabChange":
 		action.e.target.id === "0" && (state.tab = "cheap");
 		action.e.target.id === "1" && (state.tab = "fast");
 		action.e.target.id === "2" && (state.tab = "optimal");
 
-		return {...state, tab: state.tab, tabClassNames: copyOfClassNames};
-	} else {
+		return {...state, tab: state.tab};
+	default:
 		return state;
 	}
 };

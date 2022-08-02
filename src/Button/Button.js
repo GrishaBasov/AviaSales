@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import classes from "./Button.module.scss";
-import { showNewFiveTickets } from "../actions";
+import { showNewFiveTickets } from "../Redux/actions";
 
 function Button({ showNewFiveTickets, state }) {
 	let className = classes["button-show-five-more"];

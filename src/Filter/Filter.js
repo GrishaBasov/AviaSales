@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
 import classes from "./Filter.module.scss";
-import * as actions from "../actions";
 
-function Filter({ currentFilters, filterChange }) {
+import {filterChange} from "../Redux/actions";
+
+function Filter({ state, filterChange }) {
 
 
 	return (
@@ -12,7 +13,7 @@ function Filter({ currentFilters, filterChange }) {
 				<input
 					type="checkbox"
 					id="0"
-					checked={currentFilters[0]}
+					checked={state.filters[0]}
 					className={classes.check__input}
 					onChange={(e) => filterChange(e)}
 				/>
@@ -23,7 +24,7 @@ function Filter({ currentFilters, filterChange }) {
 				<input
 					type="checkbox"
 					id="1"
-					checked={currentFilters[1]}
+					checked={state.filters[1]}
 					className={classes.check__input}
 					onChange={(e) => filterChange(e)}
 				/>
@@ -34,7 +35,7 @@ function Filter({ currentFilters, filterChange }) {
 				<input
 					type="checkbox"
 					id="2"
-					checked={currentFilters[2]}
+					checked={state.filters[2]}
 					className={classes.check__input}
 					onChange={(e) => filterChange(e)}
 				/>
@@ -45,7 +46,7 @@ function Filter({ currentFilters, filterChange }) {
 				<input
 					type="checkbox"
 					id="3"
-					checked={currentFilters[3]}
+					checked={state.filters[3]}
 					className={classes.check__input}
 					onChange={(e) => filterChange(e)}
 				/>
@@ -56,7 +57,7 @@ function Filter({ currentFilters, filterChange }) {
 				<input
 					type="checkbox"
 					id="4"
-					checked={currentFilters[4]}
+					checked={state.filters[4]}
 					className={classes.check__input}
 					onChange={(e) => filterChange(e)}
 				/>
@@ -71,7 +72,11 @@ function Filter({ currentFilters, filterChange }) {
 }
 
 const mapStateProps = (state) => ({
-	currentFilters: state.filters,
+	state
 });
 
-export default connect(mapStateProps, actions)(Filter);
+const MapDispatchToProps = (dispatch) => ({
+	filterChange: (e) => dispatch(filterChange(e))
+});
+
+export default connect(mapStateProps, MapDispatchToProps)(Filter);

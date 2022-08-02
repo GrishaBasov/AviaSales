@@ -1,4 +1,4 @@
-import { getTicketsAction, getIdAction } from "../actions";
+import { getTicketsAction, getIdAction } from "../Redux/actions";
 
 export const getSessionId = () => async function (dispatch) {
 	const getId = await fetch("https://aviasales-test-api.kata.academy/search");
@@ -7,20 +7,18 @@ export const getSessionId = () => async function (dispatch) {
 	return dispatch(getIdAction(id));
 };
 
-export const getTickets = (id) => async function (dispatch) {
-	if (id !== null) {
-		let result = await fetch(
-			`https://aviasales-test-api.kata.academy/tickets?searchId=${id}`,
-		);
+export const getTickets = (id) => async function f(dispatch) {
 
-		if (!result.ok) {
-			result = await fetch(
-				`https://aviasales-test-api.kata.academy/tickets?searchId=${id}`,
-			);
-		}
+	let res = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${id}`);
 
-		const tickets = await result.json();
-
-		return dispatch(getTicketsAction(tickets.tickets, tickets.stop));
+	if (res.status === 500) {
+		return await f(dispatch);
 	}
+
+	let json = await res.json();
+	return dispatch(getTicketsAction(json.tickets, json.stop));
+	
 };
+
+
+
